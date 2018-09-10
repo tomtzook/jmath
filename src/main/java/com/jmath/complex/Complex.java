@@ -1,5 +1,9 @@
 package com.jmath.complex;
 
+import com.jmath.Mathx;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Complex {
@@ -111,6 +115,20 @@ public class Complex {
 
         Complex conjugate = complex.conjugate();
         return multiply(conjugate).div(complex.multiply(conjugate));
+    }
+
+    public List<Complex> roots(int degree) {
+        List<Complex> roots = new ArrayList<Complex>(degree);
+
+        double magnitude = Mathx.root(magnitude(), degree);
+        double angle = angle();
+
+        for (int i = 0; i < degree; i++) {
+            Complex complex = eularRadians(magnitude, (angle + 2 * Math.PI * i) / degree);
+            roots.add(complex);
+        }
+
+        return roots;
     }
 
     public boolean equals(Complex other) {
