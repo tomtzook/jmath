@@ -136,7 +136,7 @@ public class Vector3 {
     }
 
     public boolean equals(Vector3 other) {
-        return mX == other.mX && mY == other.mY && mZ == other.mZ;
+        return other != null && mX == other.mX && mY == other.mY && mZ == other.mZ;
     }
 
     @Override

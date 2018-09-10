@@ -120,7 +120,7 @@ public class Vector2 {
     }
 
     public boolean equals(Vector2 other) {
-        return mX == other.mX && mY == other.mY;
+        return other != null && mX == other.mX && mY == other.mY;
     }
 
     @Override
