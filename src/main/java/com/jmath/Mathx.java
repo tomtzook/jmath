@@ -23,4 +23,17 @@ public class Mathx {
 
         return x2;
     }
+
+    public static double roundToMultiplier(double value, double multiplier){
+        return multiplier * Math.round(value / multiplier);
+    }
+
+    public static double roundToMultiplier(double value, double multiplier, boolean up){
+        double rounded = roundToMultiplier(value, multiplier);
+        if(rounded < value) {
+            rounded += up ? multiplier : -multiplier;
+        }
+
+        return rounded;
+    }
 }
