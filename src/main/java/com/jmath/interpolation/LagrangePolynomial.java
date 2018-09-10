@@ -1,5 +1,9 @@
 package com.jmath.interpolation;
 
+import com.jmath.util.ArrayUnboxer;
+
+import java.util.Map;
+
 public class LagrangePolynomial implements Interpolation {
 
     private final double[] mXValues;
@@ -13,6 +17,12 @@ public class LagrangePolynomial implements Interpolation {
         mYValues = yValues;
     }
 
+    public static LagrangePolynomial fromMap(Map<Double, Double> values) {
+        Double[] xValues = values.keySet().toArray(new Double[0]);
+        Double[] yValues = values.keySet().toArray(new Double[0]);
+
+        return new LagrangePolynomial(ArrayUnboxer.unbox(xValues), ArrayUnboxer.unbox(yValues));
+    }
 
     @Override
     public double apply(double x) {

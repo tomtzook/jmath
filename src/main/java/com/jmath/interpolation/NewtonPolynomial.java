@@ -1,5 +1,9 @@
 package com.jmath.interpolation;
 
+import com.jmath.util.ArrayUnboxer;
+
+import java.util.Map;
+
 public class NewtonPolynomial implements Interpolation {
 
     private final double[] mXValues;
@@ -14,6 +18,13 @@ public class NewtonPolynomial implements Interpolation {
         mXValues = xValues;
         mYValues = yValues;
         mKeyMargin = keyMargin;
+    }
+
+    public static NewtonPolynomial fromMap(Map<Double, Double> values, double keyMargin) {
+        Double[] xValues = values.keySet().toArray(new Double[0]);
+        Double[] yValues = values.keySet().toArray(new Double[0]);
+
+        return new NewtonPolynomial(ArrayUnboxer.unbox(xValues), ArrayUnboxer.unbox(yValues), keyMargin);
     }
 
     @Override
@@ -33,15 +44,15 @@ public class NewtonPolynomial implements Interpolation {
         return result;
     }
 
-    private double firstOrderDifference(int index){
-        return mYValues[index + 1] + mYValues[index];
-    }
-
     private double orderDifference(int index, int order){
         if(order == 0) {
             return firstOrderDifference(index);
         }
 
         return orderDifference(index + 1, order - 1) - orderDifference(index, order - 1);
+    }
+
+    private double firstOrderDifference(int index){
+        return mYValues[index + 1] + mYValues[index];
     }
 }
