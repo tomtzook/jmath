@@ -14,6 +14,21 @@ public class Vector3 {
         mZ = z;
     }
 
+    public Vector3() {
+        this(0.0, 0.0, 0.0);
+    }
+
+    public static Vector3 polarRadians(double magnitude, double azimuth, double inclination) {
+        double x = magnitude * Math.sin(inclination) * Math.cos(azimuth);
+        double y = magnitude * Math.sin(inclination) * Math.sin(azimuth);
+        double z = magnitude * Math.cos(inclination);
+        return new Vector3(x, y, z);
+    }
+
+    public static Vector3 polar(double magnitude, double azimuth, double inclination) {
+        return polarRadians(magnitude, Math.toRadians(azimuth), Math.toRadians(inclination));
+    }
+
     public double x() {
         return mX;
     }

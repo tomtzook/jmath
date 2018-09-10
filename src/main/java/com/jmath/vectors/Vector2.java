@@ -16,10 +16,14 @@ public class Vector2 {
         this(0.0, 0.0);
     }
 
-    public static Vector2 polar(double magnitude, double angle) {
-        double x = magnitude * Math.cos(Math.toRadians(angle));
-        double y = magnitude * Math.sin(Math.toRadians(angle));
+    public static Vector2 polarRadians(double magnitude, double angle) {
+        double x = magnitude * Math.cos(angle);
+        double y = magnitude * Math.sin(angle);
         return new Vector2(x, y);
+    }
+
+    public static Vector2 polar(double magnitude, double angle) {
+        return polarRadians(magnitude, Math.toRadians(angle));
     }
 
     public double x() {
@@ -50,9 +54,25 @@ public class Vector2 {
         return Math.min(mX, mY);
     }
 
+    public double sum() {
+        return mX + mY;
+    }
+
+    public Vector2 abs() {
+        return new Vector2(Math.abs(mX), Math.abs(mY));
+    }
+
+    public Vector2 singular() {
+        return new Vector2(Math.signum(mX), Math.signum(mY));
+    }
+
     public Vector2 normalized() {
         double magnitude = magnitude();
         return new Vector2(mX / magnitude, mY / magnitude);
+    }
+
+    public Vector2 copy() {
+        return new Vector2(mX, mY);
     }
 
     public Vector2 add(double scalar) {
