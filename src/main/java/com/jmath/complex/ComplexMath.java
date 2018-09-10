@@ -4,6 +4,8 @@ import com.jmath.Mathx;
 
 public class ComplexMath {
 
+    private ComplexMath() {}
+
     public static Complex complexRoot(double radicand, int degree) {
         if (radicand > 0) {
             return new Complex(Mathx.root(radicand, degree), 0);

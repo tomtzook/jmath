@@ -2,6 +2,8 @@ package com.jmath.vectors;
 
 public class Vectors {
 
+    private Vectors() {}
+
     public static Vector2 cartesian(double x, double y) {
         return new Vector2(x, y);
     }

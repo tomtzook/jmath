@@ -2,6 +2,8 @@ package com.jmath.vectors;
 
 public class VectorMath {
 
+    private VectorMath() {}
+
     public static Vector2 net(Vector2... vectors) {
         double x = 0;
         double y = 0;

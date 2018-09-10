@@ -2,6 +2,8 @@ package com.jmath;
 
 public class Mathx {
 
+    private Mathx() {}
+
     private static final double ROOT_DIFFERENCE = 1e-8;
 
     public static double root(double redicand, int degree){
