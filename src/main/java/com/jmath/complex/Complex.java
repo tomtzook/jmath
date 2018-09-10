@@ -16,6 +16,10 @@ public class Complex {
         mImaginary = imaginary;
     }
 
+    public Complex() {
+        this(0.0, 0.0);
+    }
+
     public static Complex eularRadians(double magnitude, double angle) {
         double real = magnitude * Math.cos(angle);
         double imaginary = magnitude * Math.sin(angle);
