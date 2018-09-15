@@ -30,8 +30,11 @@ public class Mathx {
 
     public static double roundToMultiplier(double value, double multiplier, boolean up){
         double rounded = roundToMultiplier(value, multiplier);
-        if(rounded < value) {
-            rounded += up ? multiplier : -multiplier;
+
+        if(up && rounded < value) {
+            rounded += multiplier;
+        } else if (!up && rounded > value) {
+            rounded -= multiplier;
         }
 
         return rounded;
