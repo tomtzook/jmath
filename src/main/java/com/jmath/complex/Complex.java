@@ -1,6 +1,6 @@
 package com.jmath.complex;
 
-import com.jmath.Mathx;
+import com.jmath.ExtendedMath;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -124,7 +124,7 @@ public class Complex {
     public List<Complex> roots(int degree) {
         List<Complex> roots = new ArrayList<Complex>(degree);
 
-        double magnitude = Mathx.root(magnitude(), degree);
+        double magnitude = ExtendedMath.root(magnitude(), degree);
         double angle = angle();
 
         for (int i = 0; i < degree; i++) {

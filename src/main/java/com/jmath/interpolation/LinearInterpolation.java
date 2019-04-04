@@ -1,6 +1,6 @@
 package com.jmath.interpolation;
 
-import com.jmath.Mathx;
+import com.jmath.ExtendedMath;
 
 import java.util.Map;
 
@@ -28,9 +28,9 @@ public class LinearInterpolation implements Interpolation {
     }
 
     private double findClosestKey(double original, boolean above) {
-        double value = Mathx.roundToMultiplier(original, mKeyMargin, above);
+        double value = ExtendedMath.roundToMultiplier(original, mKeyMargin, above);
         while (!mValues.containsKey(value)) {
-            value = Mathx.roundToMultiplier(value, mKeyMargin, above);
+            value = ExtendedMath.roundToMultiplier(value, mKeyMargin, above);
         }
 
         return value;
