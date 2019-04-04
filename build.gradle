@@ -38,6 +38,32 @@ publishing {
 
             artifact createJavadoc
             artifact createSources
+
+            pom {
+                name = 'jmath'
+                description = 'Math Extention for Java'
+                url = 'https://github.com/tomtzook/jmath'
+
+                licenses {
+                    license {
+                        name = 'Apache License 2.0'
+                        url = ' http://www.apache.org/licenses/LICENSE-2.0'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'tomtzook'
+                        name = 'Tom Tzook'
+                        email = 'tomtzook@gmail.com'
+                    }
+                }
+
+                scm {
+                    developerConnection = 'scm:git:ssh://github.com/tomtzook/jmath.git'
+                    connection = 'https://github.com/tomtzook/jmath'
+                }
+            }
         }
     }
 
