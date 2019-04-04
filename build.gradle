@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'maven-publish'
+    id 'signing'
 }
 
 group GROUP
@@ -28,11 +29,15 @@ task createJavadoc(type: Jar, dependsOn: 'javadoc') {
 
 publishing {
     publications {
-        mavenJavabeans(MavenPublication) {
+        mavenJava(MavenPublication) {
             from components.java
 
             artifact createJavadoc
             artifact createSources
         }
     }
+}
+
+signing {
+    sign publishing.publications.mavenJava
 }
