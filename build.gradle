@@ -36,6 +36,28 @@ publishing {
             artifact createSources
         }
     }
+
+    repositories {
+        maven {
+            name = 'Nexus Staging'
+            url = NEXUS_RELEASE_REPOSITORY_URL
+
+            credentials {
+                username ''
+                password ''
+            }
+        }
+
+        maven {
+            name = 'Nexus Snapshot'
+            url = NEXUS_SNAPSHOT_REPOSITORY_URL
+
+            credentials {
+                username ''
+                password ''
+            }
+        }
+    }
 }
 
 signing {
