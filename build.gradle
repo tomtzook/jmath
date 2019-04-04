@@ -60,8 +60,9 @@ publishing {
                 }
 
                 scm {
+                    connection = 'scm:git:git://github.com/tomtzook/jmath.git'
                     developerConnection = 'scm:git:ssh://github.com/tomtzook/jmath.git'
-                    connection = 'https://github.com/tomtzook/jmath'
+                    url = 'https://github.com/tomtzook/jmath'
                 }
             }
         }
@@ -70,10 +71,10 @@ publishing {
     repositories {
         maven {
             if (isReleaseBuild()) {
-                name = 'Nexus Staging'
+                name = 'NexusStaging'
                 url = NEXUS_RELEASE_REPOSITORY_URL
             } else {
-                name = 'Nexus Snapshot'
+                name = 'NexusSnapshot'
                 url = NEXUS_SNAPSHOT_REPOSITORY_URL
             }
 
