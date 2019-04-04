@@ -42,25 +42,13 @@ publishing {
     }
 
     repositories {
-        if (isReleaseBuild()) {
-            maven {
-                name = 'Nexus Staging'
-                url = NEXUS_RELEASE_REPOSITORY_URL
+        maven {
+            name = 'Nexus Staging'
+            url = isReleaseBuild() ? NEXUS_RELEASE_REPOSITORY_URL : NEXUS_SNAPSHOT_REPOSITORY_URL
 
-                credentials {
-                    username ''
-                    password ''
-                }
-            }
-        } else {
-            maven {
-                name = 'Nexus Snapshot'
-                url = NEXUS_SNAPSHOT_REPOSITORY_URL
-
-                credentials {
-                    username ''
-                    password ''
-                }
+            credentials {
+                username ''
+                password ''
             }
         }
     }
