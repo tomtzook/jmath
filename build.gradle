@@ -7,6 +7,10 @@ plugins {
 group GROUP
 version VERSION
 
+def isReleaseBuild() {
+    return version.contains("SNAPSHOT") == false
+}
+
 sourceCompatibility = 1.8
 
 repositories {
@@ -38,23 +42,25 @@ publishing {
     }
 
     repositories {
-        maven {
-            name = 'Nexus Staging'
-            url = NEXUS_RELEASE_REPOSITORY_URL
+        if (isReleaseBuild()) {
+            maven {
+                name = 'Nexus Staging'
+                url = NEXUS_RELEASE_REPOSITORY_URL
 
-            credentials {
-                username ''
-                password ''
+                credentials {
+                    username ''
+                    password ''
+                }
             }
-        }
+        } else {
+            maven {
+                name = 'Nexus Snapshot'
+                url = NEXUS_SNAPSHOT_REPOSITORY_URL
 
-        maven {
-            name = 'Nexus Snapshot'
-            url = NEXUS_SNAPSHOT_REPOSITORY_URL
-
-            credentials {
-                username ''
-                password ''
+                credentials {
+                    username ''
+                    password ''
+                }
             }
         }
     }
