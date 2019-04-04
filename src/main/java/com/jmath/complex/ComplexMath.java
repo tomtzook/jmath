@@ -1,6 +1,6 @@
 package com.jmath.complex;
 
-import com.jmath.Mathx;
+import com.jmath.ExtendedMath;
 
 public class ComplexMath {
 
@@ -8,13 +8,13 @@ public class ComplexMath {
 
     public static Complex complexRoot(double radicand, int degree) {
         if (radicand > 0) {
-            return new Complex(Mathx.root(radicand, degree), 0);
+            return new Complex(ExtendedMath.root(radicand, degree), 0);
         }
         if (radicand == 0) {
             return new Complex();
         }
 
-        double result = Mathx.root(-radicand, degree);
+        double result = ExtendedMath.root(-radicand, degree);
         return new Complex(0.0, result);
     }
 
