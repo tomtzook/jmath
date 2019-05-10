@@ -1,0 +1,19 @@
+package com.jmath.util.function;
+
+import com.jmath.ExtendedMath;
+
+import java.util.function.DoublePredicate;
+import java.util.function.DoubleUnaryOperator;
+
+public class FunctionalMath {
+
+    private FunctionalMath() {}
+
+    public static DoubleUnaryOperator constrain(double min, double max) {
+        return (value) -> ExtendedMath.constrain(value, min, max);
+    }
+
+    public static DoublePredicate constrained(double min, double max) {
+        return (value) -> ExtendedMath.constrained(value, min, max);
+    }
+}
