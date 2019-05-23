@@ -65,11 +65,11 @@ public class Distance implements Comparable<Distance> {
         return compareTo(other) == 0;
     }
 
-    public boolean smaller(Distance other) {
+    public boolean shorter(Distance other) {
         return compareTo(other) < 0;
     }
 
-    public boolean larger(Distance other) {
+    public boolean longer(Distance other) {
         return compareTo(other) > 0;
     }
 
