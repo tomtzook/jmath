@@ -12,6 +12,10 @@ public class Angle implements Comparable<Angle> {
         mUnit = Objects.requireNonNull(unit, "unit");
     }
 
+    public static Angle of(double value, AngleUnit unit) {
+        return new Angle(value, unit);
+    }
+
     public static Angle degrees(double value) {
         return new Angle(value, AngleUnit.DEGREES);
     }

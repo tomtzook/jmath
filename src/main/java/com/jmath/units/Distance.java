@@ -12,6 +12,10 @@ public class Distance implements Comparable<Distance> {
         mUnit = Objects.requireNonNull(unit, "unit");
     }
 
+    public static Distance of(double value, DistanceUnit unit) {
+        return new Distance(value, unit);
+    }
+
     public static Distance centimeters(double value) {
         return new Distance(value, DistanceUnit.CM);
     }
