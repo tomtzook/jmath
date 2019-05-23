@@ -11,6 +11,11 @@ public enum AngleUnit {
         double convertFrom(double value, AngleUnit fromUnit) {
             return fromUnit.toDegrees(value);
         }
+
+        @Override
+        double fullCircle() {
+            return 360.0;
+        }
     },
     RADIANS {
         @Override
@@ -22,10 +27,17 @@ public enum AngleUnit {
         double convertFrom(double value, AngleUnit fromUnit) {
             return fromUnit.toRadians(value);
         }
+
+        @Override
+        double fullCircle() {
+            return 2 * Math.PI;
+        }
     };
 
     abstract double toDegrees(double value);
     abstract double toRadians(double value);
 
     abstract double convertFrom(double value, AngleUnit fromUnit);
+
+    abstract double fullCircle();
 }

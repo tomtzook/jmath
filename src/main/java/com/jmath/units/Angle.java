@@ -12,12 +12,29 @@ public class Angle implements Comparable<Angle> {
         mUnit = unit;
     }
 
+    public static Angle degrees(double value) {
+        return new Angle(value, AngleUnit.DEGREES);
+    }
+
+    public static Angle radians(double value) {
+        return new Angle(value, AngleUnit.RADIANS);
+    }
+
     public double value() {
         return mValue;
     }
 
     public AngleUnit unit() {
         return mUnit;
+    }
+
+    public Angle translate() {
+        double translatedValue = mValue % mUnit.fullCircle();
+        if (translatedValue < 0) {
+            translatedValue += mUnit.fullCircle();
+        }
+
+        return new Angle(translatedValue, mUnit);
     }
 
     public Angle toUnit(AngleUnit unit) {
