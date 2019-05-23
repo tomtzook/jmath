@@ -90,11 +90,7 @@ public class Distance implements Comparable<Distance> {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Distance) {
-            return equals((Distance)obj);
-        }
-
-        return false;
+        return obj instanceof Distance && equals((Distance)obj);
     }
 
     @Override
@@ -105,5 +101,13 @@ public class Distance implements Comparable<Distance> {
     @Override
     public String toString() {
         return String.format("%.3f [%s]", mValue, mUnit.name());
+    }
+
+    public static Distance min(Distance distance1, Distance distance2) {
+        return distance2.shorter(distance1) ? distance2 : distance1;
+    }
+
+    public static Distance max(Distance distance1, Distance distance2) {
+        return distance2.longer(distance1) ? distance2 : distance1;
     }
 }

@@ -91,11 +91,7 @@ public class Angle implements Comparable<Angle> {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Angle) {
-            return equals((Angle)obj);
-        }
-
-        return false;
+        return obj instanceof Angle && equals((Angle)obj);
     }
 
     @Override
@@ -106,5 +102,13 @@ public class Angle implements Comparable<Angle> {
     @Override
     public String toString() {
         return String.format("%.3f [%s]", mValue, mUnit);
+    }
+
+    public static Angle min(Angle angle1, Angle angle2) {
+        return angle2.smaller(angle1) ? angle2 : angle1;
+    }
+
+    public static Angle max(Angle angle1, Angle angle2) {
+        return angle2.bigger(angle1) ? angle2 : angle1;
     }
 }
