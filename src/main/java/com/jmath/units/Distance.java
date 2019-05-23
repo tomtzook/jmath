@@ -45,6 +45,10 @@ public class Distance implements Comparable<Distance> {
         return new Distance(newValue, unit);
     }
 
+    public Distance abs() {
+        return new Distance(Math.abs(mValue), mUnit);
+    }
+
     public Distance add(Distance other) {
         double newValue = mValue + other.toUnit(mUnit).value();
         return new Distance(newValue, mUnit);
@@ -78,8 +82,9 @@ public class Distance implements Comparable<Distance> {
     }
 
     @Override
-    public int compareTo(Distance o) {
-        double otherValue = o.toUnit(mUnit).value();
+    public int compareTo(Distance other) {
+        Objects.requireNonNull(other, "other");
+        double otherValue = other.toUnit(mUnit).value();
 
         if (mValue == otherValue) {
             return 0;

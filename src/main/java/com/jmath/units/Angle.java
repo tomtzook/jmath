@@ -79,8 +79,9 @@ public class Angle implements Comparable<Angle> {
     }
 
     @Override
-    public int compareTo(Angle o) {
-        double otherValue = o.toUnit(mUnit).value();
+    public int compareTo(Angle other) {
+        Objects.requireNonNull(other, "other");
+        double otherValue = other.toUnit(mUnit).value();
 
         if (mValue == otherValue) {
             return 0;
