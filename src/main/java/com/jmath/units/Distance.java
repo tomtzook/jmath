@@ -9,7 +9,7 @@ public class Distance implements Comparable<Distance> {
 
     public Distance(double value, DistanceUnit unit) {
         mValue = value;
-        mUnit = unit;
+        mUnit = Objects.requireNonNull(unit, "unit");
     }
 
     public static Distance centimeters(double value) {

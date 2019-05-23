@@ -9,7 +9,7 @@ public class Angle implements Comparable<Angle> {
 
     public Angle(double value, AngleUnit unit) {
         mValue = value;
-        mUnit = unit;
+        mUnit = Objects.requireNonNull(unit, "unit");
     }
 
     public static Angle degrees(double value) {
