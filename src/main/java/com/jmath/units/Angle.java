@@ -28,7 +28,7 @@ public class Angle implements Comparable<Angle> {
         return mUnit;
     }
 
-    public Angle translate() {
+    public Angle constrainInCircle() {
         double translatedValue = mValue % mUnit.fullCircle();
         if (translatedValue < 0) {
             translatedValue += mUnit.fullCircle();
