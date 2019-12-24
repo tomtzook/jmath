@@ -15,7 +15,7 @@ public class LinearInterpolation implements Interpolation {
     }
 
     @Override
-    public double apply(double x2) {
+    public double applyAsDouble(double x2) {
         if(mValues.containsKey(x2)) {
             return mValues.get(x2);
         }

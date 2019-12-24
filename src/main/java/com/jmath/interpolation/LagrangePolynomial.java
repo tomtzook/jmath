@@ -25,7 +25,7 @@ public class LagrangePolynomial implements Interpolation {
     }
 
     @Override
-    public double apply(double x) {
+    public double applyAsDouble(double x) {
         double numerator;
         double denumerator;
         double result = 0;

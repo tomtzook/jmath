@@ -28,7 +28,7 @@ public class NewtonPolynomial implements Interpolation {
     }
 
     @Override
-    public double apply(double x) {
+    public double applyAsDouble(double x) {
         double factorial = 1;
         double numerator = 1;
         double denumerator = 1;

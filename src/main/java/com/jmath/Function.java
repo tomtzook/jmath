@@ -1,7 +1,6 @@
 package com.jmath;
 
-@FunctionalInterface
-public interface Function {
+import java.util.function.DoubleUnaryOperator;
 
-    double apply(double x);
+public interface Function extends DoubleUnaryOperator {
 }
