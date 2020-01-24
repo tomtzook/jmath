@@ -1,0 +1,48 @@
+language: java
+jdk:
+  - oraclejdk11
+  - openjdk8
+  - openjdk11
+
+env:
+  global:
+    - secure: HIe0el8I/3KEzpCrZTqsrlOv9m7ekVC2lBfubL1RtGhnvI4qoWpw03pEW4rwGFqsyG6iqeAE+E+FZ30iqhQ3OahHhP6M898bvc+6hCVp2bVdWEXnvklk//rwb4r8u5SB6H9xwRBRn92vPtY0p5nCkIw+1Ns/Wsi18SOcb56xRr/gxdAQym5kUQ3yV+a0BlHp5jNVPxamIFwz0RBALzE4sUPT7mPPAg5CRVGRl89xiReN5uLd2TVeRDhbMECFPjmCmKEBLv7q56YEXoSvf+g4LBMkQxGwiEzaBTAUO1zxa9KE+MV/unaTxCWNZyHLacooXEV+LM9YdcNt5UnanJJxe8gI4IBo9bzvBjrOmXys9CR7Tk0PXN7Uxr6ohqfNb1WwQzB0LtCmt2hHxBQSbCOvnbkxf8jNjkeWCad/T+NbJPJ41+jdyHMdfsfW5sGo/forrN+M/njqTeP7ZfKeHNmyADY6pfnqzUo7jlO5vrxYAkmQXWFV9BDZtQ0+rAkTmXhamr9/QJ/fXBqClGRWx4KEgRrlFgZUNZKPs4CE1bdxIZHFiz75iJZ4+9MMN7dwfnGbz6dlPZTpwwJAZ9ZaIHlmxK8PtYESr4XNSqoy7qWH7pDYXs8a1tYU+b/tL5ldl3ZUYk6KP/8rH5YcpMoPFCxZY3edeftYunJsaf7vPcDQODM=
+    - secure: BNpLZxO0ztt9bqsDj7q0EhL7wCm11wsqw9dF5vEleEWWV1CfqnO0cSNIITAgvDAvmmIx7w+fQ05lktXzSiHyqiV75FzzxcR5oD7GrGZGAOYaiOeTrC7tPriP7IXI//dRe0rGCdUtTmfd8464FezqLhq2yxiuiPOqaxH8nJsu0IUsu3ln+D2a3G8ySILiAARqsSWZn/aJBlGTkS+IJkt2W0QYyktLjktDP42blXWsbl7DisFRnV2OkIzBdf3PZWdpotV4X6dNbcnmlIPP9Z8UPtbE+CGWfs+0m1Y3SBmKFCYpbQ5FsUj7i9iRDlvm17FUDpEEYRRlN/dYSsmRIHGOuqVY/8eqBBCIUTT/kgoyv3OErNAh8n+SQQ7WkagtbW3rhc8oNBc4J8DTKggD7Flz2Dc0rxYcEswDSa0NPtIOdxvGo5QomaHbUuD8bmzApuXPtPvm6IP/gjEAFehjrHCuUk82Ln0XEGcHdAykWXZxhwh3bWshsEwXfAYDulVVlHHQWtu+JveGRMqpH/sRtvbj9wBn49z7mjPTQbpEXQaF3FKw3YCZiq4vk32dzi6ILewKlhzzHfWZjkvLRRH+Xj02+uhfC8D7uqyJ6meSP7vRSeF3Gd30lhhD3o/7G/O9unpY8ZwYU1avU9cHAhacUgXz9+pYdcgy98QA++BP+y98aiU=
+    - secure: QBEoWCm7a+djZOBLgvd2ykc2StiHJTRkMLgy0G5RL5jwLlxwrqrrOzd6XqVCVq6Cf6oU/aUcawOXq42cNjAtuGPxAxWQAth4zHnmjYPPG8QgcFHl4GFreuueyB6GINL9neVMQjn+aie9UI/0wae7W9pJjOSgxr7pILcXW9RvEOKtsRSoy7S0WtG3KZm6fVlTvW+YiO+fcvJu9/wNzXrdy4yyxjBBVLUMKfKlG1BZdVwidO6ShAHziuQTe3XfK41YOQToLLL50JazrjEMXJBqXbrpvt380fz9KORdIr8ADZgaQSvWItkSHIB68Hq1fCq46Hpt8A+T+4yFkjv+qgoqAbDAHWiHTBbqqb8+JEDkYYt8onWn+CYPN+ZSRfX/5zb/KzXqd/UArvbEyqTr4VqcCo9W3lQXC4zLQKpHysDzStfDS792AEvuokTJcpR8+V5Om/Q1SUgMObVzzVBJxNNlpw9VndXZt9vVKFYIihLEHKwdpeXqVyMYU/3wG8e3KwiGXhvC/TuPHvIrurZeikgmNRN+WyyMHMHVwa//cqTssB+HtIxN1GJjQbxRyfdMXMgoDISEawZaodAEk7DHUzGtiKzSAfnBjc6BmpN3Amy0tCH5+lANrB276u5AAStdOCM6U0mzoHj8PNL5NZsaK6k1Vy5nej3rJONpJ9PQW4R1QN0=
+    - secure: MBc9nUA/hqtmUqtyyKHyy1iVp9vsOxbPCzZcdYSfgLAsPqQrXDBxL7PR8XomdVpHykWdbf2BFGONpIo7oOqYznM+ugKfKMemseRjtArnnfAhq7mebw/cE1fGyqnYwXvvcVZmu6IjeKEbzV2cnik/Wq20OeXwJ8j3heXUUSlXVVM5gyJyyLgLqqBf3PKYC013kjcU5n7n90Hat9kYHc2R1qaC5DcYwwESO+El36S6sQQh9+fyPu+SEKHIluq29aKO8IkeTdVAHRsNUh3jLr1UM2VdU6+iYts7p9TAnD12VUD2ya6yVmaRzLmL8WgutXF1/sNLR818sq6Ce+gIaRM+6/+vj79C/tLpqi5aAeL8tbodKBZ8VjmduE2VAT5Uo0QwPhoPGdmOcsyOxB5fKWF8AT9/XfYs+OsBk00iWZqVoxFU14Pui2Xf4yfGwSPf4GEOuT168KCIHWjxkWhebDO7R+AygZ63WeOaUq98w+wDbLDAdM2rzjhKKIbsui3FTpetOUgOqJj1eqq5Vg189gcc1uGNP6Dn62AtlaPDDj0hm4F0RBdpdV9VkTCEw7DUajTPSlc6m65Eaof2Mav8ids3RBS4s+gimIqy4C6D+m7a3UqjVKRhV2aQX9ofScGYhKYXbE1gyA28UV9M8tyl+K9P/Yp5itOhwqlc2+9tbBSz0LM=
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_39b27277f490_key -iv $encrypted_39b27277f490_iv
+    -in secring.gpg.enc -out secring.gpg -d
+
+install:
+  - "./gradlew clean"
+  - "./gradlew assemble"
+  - "./gradlew jmathAll"
+
+script:
+  - "./gradlew check"
+
+before_deploy:
+  - git config --local user.name "Travis CI"
+  - git config --local user.name "build@travis-ci.com"
+
+deploy:
+- provider: script
+  script: ./gradlew publish -PSIGN_PUBLISH=true -Psigning.keyId=${GPG_KEY_ID} -Psigning.password=${GPG_KEY_PASSPHRASE} -Psigning.secretKeyRingFile=secring.gpg
+  skip_cleanup: true
+  on:
+    condition: "$TRAVIS_TAG =~ ^v[0-9]+\\.[0-9]+\\.[0-9]+(-.*)?"
+    branch: master
+    tags: true
+- provider: releases
+  api_key:
+    secure: CpSbMbZwp99Loyrwr8raTOfQ3BwZxYliWS1FMd3Ie4o9gj2HydBlFuj1I0FCYKgUxbu8CP5IgDfRXmMPIjsol0JZocRtAKmzhRlluZ40Kg04SIjwtlh0xP7dVUsTnYZOPQEikL1gtaMw+TOdPPrH/zQgn4ZcaO7gjw0DGOTRe3L2nL3/7rLXLBzWMpOQ+svEs9lRyObl2+2B0OWyzdzpvYDpMiuP7EJ40UYmNTwx63R+tI/Bqg+EOkRTITZD7vCYoq/NqNYEp0FyHkHGfgzl/9cnPzbwP/9ND2EbG7oOd6abvGUnvt+8ZozMukY2erDTSTw6BheNJpbPmkJRTrxbfJTcN59nxHtYKe7VSn7ReSr0j4FD04nG6pitiKOpQ4o0X6ZoP54mp6OM7yljMW3CNUU1XH8ap+ESG6s1O+q0MvtS0xXNZUgYreyih11jbXI4u+QtKjRgVWir4HzHqebTrVJDwJJpuxQE/oq/z/iZruqNnhyqRRfaEaCwaVNfhxyP6AN/ex2ZyvYVW+mkFqbb/BBgR1tZqatUx03WhK8Utjr4QbQIhQXhFaqMKRjoR4oqqXcBkbFkUUb5WK7ava/HBNKPWQ7q59R3QwcgR7/GTofTPp5R6EEfghrqXmNlOuHu9iMjAzb0tH2UCzWNNuBMkMT1tt7+1sZCCY6gsO1ifdI=
+  file:
+    - build/jmath-all.jar
+    - README.md
+  on:
+    condition: "$TRAVIS_TAG =~ ^v[0-9]+\\.[0-9]+\\.[0-9]+(-.*)?"
+    repo: tomtzook/jmath
+    branch: master
+    tags: true
