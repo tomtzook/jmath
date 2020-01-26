@@ -1,17 +1,18 @@
 package com.jmath;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
-import java.util.Arrays;
-import java.util.Collection;
-
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ExtendedMathTest {
 
     private static final double MAX_DIFFERENCE_MARGIN = 1e-8;
+    private static final double EQUAL_MARGIN = 0.0001;
 
     @Test
     public void equals_numbersAreWithinMarginDifference_returnsTrue() throws Exception {
@@ -77,12 +78,14 @@ public class ExtendedMathTest {
         assertDoubleEqualsExact(AVG, ExtendedMath.avg(NUMBERS));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void avg_forEmptyArray_throwsIllegalArgumentException() throws Exception {
-        final double[] NUMBERS = {
-        };
+        assertThrows(IllegalArgumentException.class, ()-> {
+            final double[] NUMBERS = {
+            };
 
-        ExtendedMath.avg(NUMBERS);
+            ExtendedMath.avg(NUMBERS);
+        });
     }
 
     @Test
@@ -186,79 +189,39 @@ public class ExtendedMathTest {
         assertDoubleEqualsExact(VALUE, result);
     }
 
-    @RunWith(Parameterized.class)
-    public static class ConstrainTest {
-
-        private static final double EQUAL_MARGIN = 0.0001;
-
-        @Parameterized.Parameter(0)
-        public double mValueToConstrain;
-        @Parameterized.Parameter(1)
-        public double mMinLimit;
-        @Parameterized.Parameter(2)
-        public double mMaxLimit;
-        @Parameterized.Parameter(3)
-        public double mExpectedResult;
-
-        @Parameterized.Parameters(name = "constrain({0}, {1}, {2}) = {3}")
-        public static Collection<Object[]> data() {
-            return Arrays.asList(new Object[][]{
-                    {0.0, 0.0, 360.0, 0.0},
-                    {1.0, 0.0, 360.0, 1.0},
-                    {-1.4, 0.0, 360.0, 0.0},
-                    {360.5, 0.0, 360.0, 360.0},
-                    {5.0, 1000.0, 1001.0, 1000.0}
-            });
-        }
-
-        @Test
-        public void constrain_ofParameters_producesExpectedResult() throws Exception {
-            double constrainedValue = ExtendedMath.constrain(mValueToConstrain, mMinLimit, mMaxLimit);
-            assertEquals(mExpectedResult, constrainedValue, EQUAL_MARGIN);
-        }
+    @ParameterizedTest(name = "constrain({0}, {1}, {2}) = {3}")
+    @CsvSource({
+            "0.0, 0.0, 360.0, 0.0",
+            "1.0, 0.0, 360.0, 1.0",
+            "-1.4, 0.0, 360.0, 0.0",
+            "360.5, 0.0, 360.0, 360.0",
+            "5.0, 1000.0, 1001.0, 1000.0"
+    })
+    public void constrain_ofParameters_producesExpectedResult(double valueToConstrain, double minLimit, double maxLimit, double expectedResult) throws Exception {
+        double constrainedValue = ExtendedMath.constrain(valueToConstrain, minLimit, maxLimit);
+        assertEquals(expectedResult, constrainedValue, EQUAL_MARGIN);
     }
 
-    @RunWith(Parameterized.class)
-    public static class ConstrainedTest {
-
-        @Parameterized.Parameter(0)
-        public double mValueToCheck;
-        @Parameterized.Parameter(1)
-        public double mMinLimit;
-        @Parameterized.Parameter(2)
-        public double mMaxLimit;
-        @Parameterized.Parameter(3)
-        public boolean mExpectedResult;
-
-        @Parameterized.Parameters(name = "constrained({0}, {1}, {2}) = {3}")
-        public static Collection<Object[]> data() {
-            return Arrays.asList(new Object[][]{
-                    {0.0, 0.0, 360.0, true},
-                    {1.0, 0.0, 360.0, true},
-                    {-1.4, 0.0, 360.0, false},
-                    {360.5, 0.0, 360.0, false},
-                    {5.0, 1000.0, 1001.0, false}
-            });
-        }
-
-        @Test
-        public void constrained_ofParameters_producesExpectedResult() throws Exception {
-            boolean isConstrained = ExtendedMath.constrained(mValueToCheck, mMinLimit, mMaxLimit);
-            assertEquals(mExpectedResult, isConstrained);
-        }
+    @ParameterizedTest(name = "constrained({0}, {1}, {2}) = {3}")
+    @CsvSource({
+            "0.0, 0.0, 360.0, true",
+            "1.0, 0.0, 360.0, true",
+            "-1.4, 0.0, 360.0, false",
+            "360.5, 0.0, 360.0, false",
+            "5.0, 1000.0, 1001.0, false"
+    })
+    public void constrained_ofParameters_producesExpectedResult(double valueToCheck, double minLimit, double maxLimit, double expectedResult) throws Exception {
+        boolean isConstrained = ExtendedMath.constrained(valueToCheck, minLimit, maxLimit);
+        assertEquals(valueToCheck, isConstrained);
     }
 
     private static void assertDoubleEqualsExact(double expected, double actual) {
-        assertEquals(
-                String.format("expected: %f actual: %f", expected, actual),
-                Double.doubleToLongBits(expected),
+        assertEquals(Double.doubleToLongBits(expected),
                 Double.doubleToLongBits(actual));
     }
 
     private static void assertDoubleEqualsWithMargin(double expected, double actual) {
-        assertTrue(
-                String.format("expected: %f actual: %f", expected, actual),
-                expected > actual - MAX_DIFFERENCE_MARGIN &&
+        assertTrue(expected > actual - MAX_DIFFERENCE_MARGIN &&
                         expected < actual + MAX_DIFFERENCE_MARGIN);
     }
 }

@@ -19,7 +19,7 @@ public class LagrangePolynomial implements Interpolation {
 
     public static LagrangePolynomial fromMap(Map<Double, Double> values) {
         Double[] xValues = values.keySet().toArray(new Double[0]);
-        Double[] yValues = values.keySet().toArray(new Double[0]);
+        Double[] yValues = values.values().toArray(new Double[0]);
 
         return new LagrangePolynomial(ArrayUnboxer.unbox(xValues), ArrayUnboxer.unbox(yValues));
     }

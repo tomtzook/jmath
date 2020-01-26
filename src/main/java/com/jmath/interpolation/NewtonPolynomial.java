@@ -22,7 +22,7 @@ public class NewtonPolynomial implements Interpolation {
 
     public static NewtonPolynomial fromMap(Map<Double, Double> values, double keyMargin) {
         Double[] xValues = values.keySet().toArray(new Double[0]);
-        Double[] yValues = values.keySet().toArray(new Double[0]);
+        Double[] yValues = values.values().toArray(new Double[0]);
 
         return new NewtonPolynomial(ArrayUnboxer.unbox(xValues), ArrayUnboxer.unbox(yValues), keyMargin);
     }
