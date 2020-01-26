@@ -210,9 +210,9 @@ public class ExtendedMathTest {
             "360.5, 0.0, 360.0, false",
             "5.0, 1000.0, 1001.0, false"
     })
-    public void constrained_ofParameters_producesExpectedResult(double valueToCheck, double minLimit, double maxLimit, double expectedResult) throws Exception {
+    public void constrained_ofParameters_producesExpectedResult(double valueToCheck, double minLimit, double maxLimit, boolean expectedResult) throws Exception {
         boolean isConstrained = ExtendedMath.constrained(valueToCheck, minLimit, maxLimit);
-        assertEquals(valueToCheck, isConstrained);
+        assertEquals(expectedResult, isConstrained);
     }
 
     private static void assertDoubleEqualsExact(double expected, double actual) {
