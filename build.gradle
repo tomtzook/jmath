@@ -57,17 +57,11 @@ task jmathAll(type: Jar, dependsOn: tasks.assemble) {
     dependsOn javadocJar
 
     archiveFileName.set('jmath-all.jar')
-    destinationDirectory.set(rootProject.buildDir)
+    destinationDirectory.set(project.buildDir)
 
-    from files(subprojects.collect {
-        it.sourceSets.main.output
-    })
-    from files(subprojects.collect {
-        it.sourceSets.main.allSource
-    })
-    from files(subprojects.collect {
-        it.javadoc.destinationDir
-    })
+    from sourceSets.main.output
+    from sourceSets.main.allSource
+    from javadoc.destinationDir
 }
 
 publishing {
