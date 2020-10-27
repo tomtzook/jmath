@@ -1,6 +1,6 @@
 package com.jmath;
 
-public class Integrals {
+public final class Integrals {
 
     private Integrals() {}
 

@@ -1,6 +1,6 @@
 package com.jmath;
 
-public class ExtendedMath {
+public final class ExtendedMath {
 
     private ExtendedMath() {}
 
