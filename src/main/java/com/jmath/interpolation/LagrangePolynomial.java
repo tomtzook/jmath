@@ -26,23 +26,18 @@ public class LagrangePolynomial implements Interpolation {
 
     @Override
     public double applyAsDouble(double x) {
-        double numerator;
-        double denumerator;
         double result = 0;
 
         for (int i = 0; i < mYValues.length; i++) {
-            numerator = 1;
-            denumerator = 1;
-
+            double term = mYValues[i];
             for (int j = 0; j < mYValues.length; j++) {
-                if(i == j) {
+                if (j == i)
                     continue;
-                }
 
-                numerator *= (x - mYValues[j]);
-                denumerator *= ((mXValues[i]) - mYValues[j]);
+                term *= (x - mXValues[j]) / (mXValues[i] - mXValues[j]);
             }
-            result += ((numerator / denumerator) * mYValues[i]);
+
+            result += term;
         }
 
         return result;

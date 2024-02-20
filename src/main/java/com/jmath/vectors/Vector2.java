@@ -116,7 +116,20 @@ public class Vector2 {
     }
 
     public double angleTo(Vector2 vector) {
-        return Math.acos(dot(vector) / (magnitude() + vector.magnitude()));
+        return Math.acos(dot(vector) / (magnitude() * vector.magnitude()));
+    }
+
+    public Vector2 rotateRadians(double angle) {
+        double sin = Math.sin(angle);
+        double cos = Math.cos(angle);
+
+        return new Vector2(
+                mX * cos - mY * sin,
+                mX * sin + mY * cos);
+    }
+
+    public Vector2 rotate(double angle) {
+        return rotateRadians(Math.toRadians(angle));
     }
 
     public boolean equals(Vector2 other) {

@@ -1,5 +1,7 @@
 package com.jmath.vectors;
 
+import com.jmath.quaternion.Quaternion;
+
 import java.util.Objects;
 
 public class Vector3 {
@@ -132,7 +134,13 @@ public class Vector3 {
     }
 
     public double angleTo(Vector3 other) {
-        return Math.acos(dot(other) / (magnitude() + other.magnitude()));
+        return Math.acos(dot(other) / (magnitude() * other.magnitude()));
+    }
+
+    public Vector3 rotate(Quaternion quaternion) {
+        Quaternion conjugate = quaternion.conjugate();
+        Quaternion w = quaternion.multiply(this).multiply(conjugate);
+        return new Vector3(w.x(), w.y(), w.z());
     }
 
     public boolean equals(Vector3 other) {
