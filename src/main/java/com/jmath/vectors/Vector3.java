@@ -134,7 +134,7 @@ public class Vector3 {
     }
 
     public double angleTo(Vector3 other) {
-        return Math.acos(dot(other) / (magnitude() + other.magnitude()));
+        return Math.acos(dot(other) / (magnitude() * other.magnitude()));
     }
 
     public Vector3 rotate(Quaternion quaternion) {

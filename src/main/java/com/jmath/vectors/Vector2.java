@@ -116,7 +116,7 @@ public class Vector2 {
     }
 
     public double angleTo(Vector2 vector) {
-        return Math.acos(dot(vector) / (magnitude() + vector.magnitude()));
+        return Math.acos(dot(vector) / (magnitude() * vector.magnitude()));
     }
 
     public Vector2 rotateRadians(double angle) {
